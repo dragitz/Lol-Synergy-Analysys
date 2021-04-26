@@ -18,6 +18,8 @@ If you want to "brute force" a role and see which champion has the highest syner
 
 No riot api key is needed, I'm using public available data.
 
+Precompiled: https://github.com/dragitz/Lol-Synergy-Analysys/tree/main/Lol%20Synergy%20Analysys/bin/Release/netcoreapp3.1
+
 ![](https://i.imgur.com/LrruJeG.png)
 
 Please note that it took me a few hours to code this program, even though I've added lots of comments to guide you through the process, it may contain bugs and unwanted errors.
