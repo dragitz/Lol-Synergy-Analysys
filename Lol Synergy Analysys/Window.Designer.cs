@@ -48,6 +48,9 @@ namespace Lol_Synergy_Analysys
             this.status1 = new System.Windows.Forms.Label();
             this.debug = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.synergy_label = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // GetChampions_btn
@@ -152,7 +155,7 @@ namespace Lol_Synergy_Analysys
             // 
             // Calculate_btn
             // 
-            this.Calculate_btn.Location = new System.Drawing.Point(295, 217);
+            this.Calculate_btn.Location = new System.Drawing.Point(71, 217);
             this.Calculate_btn.Name = "Calculate_btn";
             this.Calculate_btn.Size = new System.Drawing.Size(75, 23);
             this.Calculate_btn.TabIndex = 13;
@@ -222,11 +225,42 @@ namespace Lol_Synergy_Analysys
             this.label11.TabIndex = 27;
             this.label11.Text = "debug box";
             // 
+            // synergy_label
+            // 
+            this.synergy_label.AutoSize = true;
+            this.synergy_label.Location = new System.Drawing.Point(71, 187);
+            this.synergy_label.Name = "synergy_label";
+            this.synergy_label.Size = new System.Drawing.Size(112, 15);
+            this.synergy_label.TabIndex = 28;
+            this.synergy_label.Text = "Avg. synergy score: ";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(245, 217);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 23);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Find best score";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(396, 221);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(24, 15);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "0/0";
+            // 
             // Title
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.synergy_label);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.debug);
             this.Controls.Add(this.status1);
@@ -273,6 +307,9 @@ namespace Lol_Synergy_Analysys
         private System.Windows.Forms.Label status1;
         private System.Windows.Forms.RichTextBox debug;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label synergy_label;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gersi\\source\\repos\\Lol Synergy Analysys\\Lol Synergy Analysys\\Lol Synergy Analysys.csproj": {}
+    "C:\\Users\\gersi\\Documents\\GitHub\\Lol Synergy Analysys\\Lol Synergy Analysys\\Lol Synergy Analysys.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gersi\\source\\repos\\Lol Synergy Analysys\\Lol Synergy Analysys\\Lol Synergy Analysys.csproj": {
+    "C:\\Users\\gersi\\Documents\\GitHub\\Lol Synergy Analysys\\Lol Synergy Analysys\\Lol Synergy Analysys.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gersi\\source\\repos\\Lol Synergy Analysys\\Lol Synergy Analysys\\Lol Synergy Analysys.csproj",
+        "projectUniqueName": "C:\\Users\\gersi\\Documents\\GitHub\\Lol Synergy Analysys\\Lol Synergy Analysys\\Lol Synergy Analysys.csproj",
         "projectName": "Lol Synergy Analysys",
-        "projectPath": "C:\\Users\\gersi\\source\\repos\\Lol Synergy Analysys\\Lol Synergy Analysys\\Lol Synergy Analysys.csproj",
+        "projectPath": "C:\\Users\\gersi\\Documents\\GitHub\\Lol Synergy Analysys\\Lol Synergy Analysys\\Lol Synergy Analysys.csproj",
         "packagesPath": "C:\\Users\\gersi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gersi\\source\\repos\\Lol Synergy Analysys\\Lol Synergy Analysys\\obj\\",
+        "outputPath": "C:\\Users\\gersi\\Documents\\GitHub\\Lol Synergy Analysys\\Lol Synergy Analysys\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

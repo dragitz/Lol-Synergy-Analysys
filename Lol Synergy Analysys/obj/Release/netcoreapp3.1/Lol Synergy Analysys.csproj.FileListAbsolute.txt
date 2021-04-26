@@ -15,3 +15,20 @@ C:\Users\gersi\source\repos\Lol Synergy Analysys\Lol Synergy Analysys\obj\Releas
 C:\Users\gersi\source\repos\Lol Synergy Analysys\Lol Synergy Analysys\obj\Release\netcoreapp3.1\Lol Synergy Analysys.dll
 C:\Users\gersi\source\repos\Lol Synergy Analysys\Lol Synergy Analysys\obj\Release\netcoreapp3.1\Lol Synergy Analysys.pdb
 C:\Users\gersi\source\repos\Lol Synergy Analysys\Lol Synergy Analysys\obj\Release\netcoreapp3.1\Lol Synergy Analysys.genruntimeconfig.cache
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\bin\Release\netcoreapp3.1\Lol Synergy Analysys.exe
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\bin\Release\netcoreapp3.1\Lol Synergy Analysys.deps.json
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\bin\Release\netcoreapp3.1\Lol Synergy Analysys.runtimeconfig.json
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\bin\Release\netcoreapp3.1\Lol Synergy Analysys.runtimeconfig.dev.json
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\bin\Release\netcoreapp3.1\Lol Synergy Analysys.dll
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\bin\Release\netcoreapp3.1\Lol Synergy Analysys.pdb
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\obj\Release\netcoreapp3.1\Lol Synergy Analysys.csprojAssemblyReference.cache
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\obj\Release\netcoreapp3.1\Lol_Synergy_Analysys.Title.resources
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\obj\Release\netcoreapp3.1\Lol Synergy Analysys.csproj.GenerateResource.cache
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\obj\Release\netcoreapp3.1\Lol Synergy Analysys.AssemblyInfoInputs.cache
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\obj\Release\netcoreapp3.1\Lol Synergy Analysys.AssemblyInfo.cs
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\obj\Release\netcoreapp3.1\Lol Synergy Analysys.csproj.CoreCompileInputs.cache
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\obj\Release\netcoreapp3.1\Lol Synergy Analysys.csproj.CopyComplete
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\obj\Release\netcoreapp3.1\Lol Synergy Analysys.dll
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\obj\Release\netcoreapp3.1\Lol Synergy Analysys.pdb
+C:\Users\gersi\Documents\GitHub\Lol Synergy Analysys\Lol Synergy Analysys\obj\Release\netcoreapp3.1\Lol Synergy Analysys.genruntimeconfig.cache

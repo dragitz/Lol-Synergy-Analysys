@@ -66,11 +66,14 @@ namespace Lol_Synergy_Analysys
             public static string[] ArrayRoles = { "ADC", "SUPPORT", "JUNGLE", "MID", "TOP" };
 
             public static String FINAL_OUTPUT = "";                   // Used to store and print team comp
+            public static String FINAL_OUTPUT_CSV = "";               // Used to output data to a .csv format
+            public static String FINAL_OUTPUT_CSV_TITLE = "";               // Used to output data to a .csv format
 
 
 
 
             public static String CHAMPIONS_ARRAY_ANALISYS = "";       // debug stuff
+
 
 
 
@@ -258,6 +261,7 @@ namespace Lol_Synergy_Analysys
 
         private async void Calculate_btn_Click(object sender, EventArgs e)
         {
+            decimal max_synergy = 0;
             if (Globals.ROLE != "")
             {
 
@@ -305,9 +309,12 @@ namespace Lol_Synergy_Analysys
                 //Output.Text = "name:pw     "+Globals.Name+":"+Globals.ID;
                 //var JSON_ARRAY = Globals.CHAMPIONS_ARRAY;
 
-                Globals.FINAL_OUTPUT = Globals.Name;
+                Globals.FINAL_OUTPUT = Globals.ROLE + ": " + Globals.Name;
+                Globals.FINAL_OUTPUT_CSV = Globals.Name;
+                Globals.FINAL_OUTPUT_CSV_TITLE = Globals.ROLE;
                 var score = 0;
                 var the_id = "";
+                decimal synergy = 0;
 
                 //Start a loop. Yay code optimization!
                 for (var i = 0; i < Globals.ArrayRoles.Length; i++)
@@ -354,7 +361,7 @@ namespace Lol_Synergy_Analysys
 
 
                                     //if (structure.champion.champion_id == Globals.ID && structure.champion.role == Globals.ROLE && structure.duo_win_rate > score && structure.duo_game_count >= MinDuoMatches.Value && MinDuoWinRate.Value >= duo_win_rate)
-                                    if (structure.champion.champion_id == Globals.ID && structure.champion.role == Globals.ROLE && structure.duo_win_rate > score)
+                                    if (structure.champion.champion_id == Globals.ID && structure.champion.role == Globals.ROLE && structure.duo_win_rate > score && score < 1)
                                     {
                                         //
                                         debug.Text = structure.duo_win_rate; //debug win%
@@ -375,22 +382,27 @@ namespace Lol_Synergy_Analysys
 
                                         }
                                         score = structure.duo_win_rate;
-                                        Globals.FINAL_OUTPUT = Globals.FINAL_OUTPUT + "   " + the_id;
+                                        synergy = synergy + Decimal.Parse(structure.duo_win_rate.ToString());
+                                        Globals.FINAL_OUTPUT = Globals.FINAL_OUTPUT + "   " + Globals.ArrayRoles[i].ToString() + ": " + the_id;
 
                                     }
 
                                     //Here we send our data to final and reset variables (dunno if the last part is needed though, but I want to be sure)
 
-                                    
+
                                 }
                                 score = 0;
+
                             }
                         }
                     }
                 }
 
+                synergy = synergy / 4;
 
+                //Limiting to 0.6 prevents false positives
 
+                max_synergy = synergy;
                 //We generated our first team!
 
                 //Now we need to convert all ids to champion names!
@@ -398,10 +410,15 @@ namespace Lol_Synergy_Analysys
                 //debug.Text = Globals.CHAMPIONS_ARRAY;
 
 
+                synergy_label.Text = "Avg.synergy score: " + synergy.ToString();
 
-
+                Output.Text = "";
                 Output.AppendText("The following team has been generated to favor " + Globals.Name + " the most." + System.Environment.NewLine + System.Environment.NewLine);
-                Output.AppendText(Globals.FINAL_OUTPUT);
+                Output.AppendText(Globals.FINAL_OUTPUT + System.Environment.NewLine);
+                Output.AppendText("Avg. synergy score: " + synergy.ToString() + System.Environment.NewLine);
+
+
+
             }
 
         }
@@ -410,6 +427,210 @@ namespace Lol_Synergy_Analysys
 
 
 
+
+
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            decimal max_synergy = 0;
+            for (var k = 0; k < JUNGLER_Box.Items.Count; k++)
+            {
+                if (Globals.ROLE == "ADC") { ADC_Box.SelectedIndex = k; }
+                if (Globals.ROLE == "SUPPORT") { SUPPORT_Box.SelectedIndex = k; }
+                if (Globals.ROLE == "MID") { MID_Box.SelectedIndex = k; }
+                if (Globals.ROLE == "TOP") { TOP_Box.SelectedIndex = k; }
+                if (Globals.ROLE == "JUNGLE") { JUNGLER_Box.SelectedIndex = k; }
+
+                label1.Text = k + "/" + JUNGLER_Box.Items.Count;
+
+                if (Globals.ROLE != "")
+                {
+
+                    var handler = new HttpClientHandler();
+
+                    /*
+
+                    1) Get json and store it https://beta.iesdev.com/api/lolstats/duo/roles/ADC/SUPPORT?language=en&patch=11.8&region=world&tier=PLATINUM_PLUS
+                            NOTE: Edit the version and roles
+
+                    2) Get wanted role by checking if:
+                                -Comboboxed are Unselected
+                                    or
+                                -Preferred role stored in a variable
+                                    or
+                                -Use the created array to check if the championName matches, if true get the championId and use it to compare to the linked list above
+
+
+
+                    */
+
+                    //Get the championID of our desired champion
+                    for (var i = 0; i < Globals.ArrayRoles.Length; i++)
+                    {
+                        if (Globals.ArrayRoles[i] == Globals.ROLE)
+                        {
+                            //Then to an array
+                            dynamic parsedArray = JsonConvert.DeserializeObject(Globals.CHAMPIONS_ARRAY);
+
+                            //Find our needed data
+                            foreach (dynamic item in parsedArray.data)
+                            {
+
+                                foreach (dynamic itemb in item)
+                                {
+                                    if (itemb.championName == Globals.Name)
+                                    {
+                                        Globals.ID = itemb.championId;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    //Output.Text = "name:pw     "+Globals.Name+":"+Globals.ID;
+                    //var JSON_ARRAY = Globals.CHAMPIONS_ARRAY;
+
+                    Globals.FINAL_OUTPUT = Globals.ROLE + ": " + Globals.Name;
+                    Globals.FINAL_OUTPUT_CSV = Globals.Name;
+                    Globals.FINAL_OUTPUT_CSV_TITLE = Globals.ROLE;
+                    var score = 0;
+                    var the_id = "";
+                    decimal synergy = 0;
+
+                    //Start a loop. Yay code optimization!
+                    for (var i = 0; i < Globals.ArrayRoles.Length; i++)
+                    {
+                        //Make sure to ignore our selected role
+                        if (Globals.ArrayRoles[i] != Globals.ROLE)
+                        {
+                            //beta.iesdev.com/api/lolstats/duo/roles/ADC/SUPPORT?language=en&patch=11.8&region=world&tier=PLATINUM_PLUS
+
+                            handler = new HttpClientHandler();
+                            handler.UseCookies = false;
+                            // If you are using .NET Core 3.0+ you can replace `~DecompressionMethods.None` to `DecompressionMethods.All`
+                            handler.AutomaticDecompression = ~DecompressionMethods.None;
+                            using (var httpClient = new HttpClient(handler))
+                            {
+
+                                //GET ADC + SUPPORT COMBO
+                                using (var request = new HttpRequestMessage(new HttpMethod("GET"), "https://beta.iesdev.com/api/lolstats/duo/roles/" + Globals.ROLE + "/" + Globals.ArrayRoles[i].ToString() + "?language=en&patch=" + Globals.API_VERSION + "&region=world&tier=PLATINUM_PLUS"))
+                                {
+                                    //Send request
+                                    var response = await httpClient.SendAsync(request);
+
+                                    //Store reply
+                                    string source = await response.Content.ReadAsStringAsync();
+
+                                    //This will store the json output as a string into the "JSON" variable
+                                    //You can print with:    Output.Text = source;
+                                    string JSON = source;
+                                    //Output.Text = source; //debug
+                                    //Then to an array
+                                    dynamic parsedArray = JsonConvert.DeserializeObject(source);
+
+                                    //Store single structure of "data" inside "structure".. Yeah I'm very creative.
+                                    foreach (dynamic structure in parsedArray.data)
+                                    {
+
+                                        //debug.Text = structure.ToString();
+                                        //debug.Text = structure.champion.ToString();
+                                        //debug.Text = structure.champion.champion_id + "   " + structure.champion.role;
+                                        //string screen = new string(structure.duo_win_rate.ToString().Take(4).ToArray());
+                                        //decimal duo_win_rate = Decimal.Parse(screen);
+                                        //decimal duo_win_rate = Convert.ToDecimal(structure.duo_win_rate);
+
+
+
+                                        //if (structure.champion.champion_id == Globals.ID && structure.champion.role == Globals.ROLE && structure.duo_win_rate > score && structure.duo_game_count >= MinDuoMatches.Value && MinDuoWinRate.Value >= duo_win_rate)
+                                        if (structure.champion.champion_id == Globals.ID && structure.champion.role == Globals.ROLE && structure.duo_win_rate > score && score < 1)
+                                        {
+                                            //
+                                            //debug.Text = structure.duo_win_rate; //debug win%
+                                            dynamic NewParsedArray = JsonConvert.DeserializeObject(Globals.CHAMPIONS_ARRAY);
+
+                                            //Store single structure of "data" inside "structure".. Yeah I'm very creative.
+                                            //We will use this to replace all champion ids to champion names
+                                            foreach (dynamic ToChampName_Struct in NewParsedArray.data)
+                                            {
+                                                foreach (dynamic Ending in ToChampName_Struct)
+                                                {
+
+                                                    if (Ending.championId == structure.duo_champion.champion_id)
+                                                    {
+                                                        the_id = Ending.championName;
+                                                    }
+                                                }
+
+                                            }
+                                            score = structure.duo_win_rate;
+                                            synergy = synergy + Decimal.Parse(structure.duo_win_rate.ToString());
+                                            Globals.FINAL_OUTPUT = Globals.FINAL_OUTPUT + "   " + Globals.ArrayRoles[i].ToString() + ": " + the_id;
+
+                                            //CSV Collction
+                                            if (!Globals.FINAL_OUTPUT_CSV_TITLE.Contains(Globals.ArrayRoles[i].ToString()))
+                                            {
+                                                Globals.FINAL_OUTPUT_CSV_TITLE = Globals.FINAL_OUTPUT_CSV_TITLE + ";" + Globals.ArrayRoles[i].ToString();
+                                            }
+                                            Globals.FINAL_OUTPUT_CSV = Globals.FINAL_OUTPUT_CSV + ";" + the_id;
+
+
+                                        }
+
+                                        //Here we send our data to final and reset variables (dunno if the last part is needed though, but I want to be sure)
+
+
+                                    }
+                                    score = 0;
+
+                                }
+                            }
+                        }
+                    }
+
+
+                    synergy = synergy / 4;
+
+                    //Limiting to 0.6 prevents false positives
+                    if (synergy > max_synergy && synergy < Convert.ToDecimal(0.60))
+                    {
+                        max_synergy = synergy;
+                        //We generated our first team!
+
+                        //Now we need to convert all ids to champion names!
+
+                        //debug.Text = Globals.CHAMPIONS_ARRAY;
+
+
+                        synergy_label.Text = "Avg.synergy score: " + synergy.ToString();
+
+                        Output.Text = "";
+                        Output.AppendText("The following team has been generated to favor " + Globals.Name + " the most." + System.Environment.NewLine + System.Environment.NewLine);
+                        Output.AppendText(Globals.FINAL_OUTPUT + System.Environment.NewLine);
+                        Output.AppendText("Avg. synergy score: " + synergy.ToString() + System.Environment.NewLine);
+
+
+
+                        if (!debug.Text.Contains(Globals.FINAL_OUTPUT_CSV_TITLE))
+                        { debug.AppendText(Globals.FINAL_OUTPUT_CSV_TITLE + ";Synergy" + System.Environment.NewLine); }
+
+                        debug.AppendText(Globals.FINAL_OUTPUT_CSV + ";" + max_synergy + System.Environment.NewLine);
+                        Globals.FINAL_OUTPUT_CSV = "";
+
+
+                    }
+
+
+                }
+
+                //Print .csv here
+
+            }
+
+            //For terminated
+            label1.Text = JUNGLER_Box.Items.Count + "/" + JUNGLER_Box.Items.Count;
+
+
+        }
 
 
 
@@ -473,5 +694,7 @@ namespace Lol_Synergy_Analysys
 
             Globals.Name = TOP_Box.Text;
         }
+
+
     }
 }

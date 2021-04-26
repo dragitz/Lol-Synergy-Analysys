@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ryZYd2/POrfE98Fh/AnRcI+mri7I/1g/ZZ5PksCm73YdPQXJ85Ajq60ILw187TrQk1M4Dyv8rn9ocMIOJucxHA==",
+  "dgSpecHash": "Ek4FdTlF7/fdRAnKyyykz2sAiv1whTwtWiCS7XjyasEjMQIIDjg9IfRL3zIWi9i7tfw8qa5TtFSbteQtWo3BUQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gersi\\source\\repos\\Lol Synergy Analysys\\Lol Synergy Analysys\\Lol Synergy Analysys.csproj",
+  "projectFilePath": "C:\\Users\\gersi\\Documents\\GitHub\\Lol Synergy Analysys\\Lol Synergy Analysys\\Lol Synergy Analysys.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gersi\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
