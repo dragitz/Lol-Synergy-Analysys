@@ -524,7 +524,7 @@ namespace Lol_Synergy_Analysys
                                     //This will store the json output as a string into the "JSON" variable
                                     //You can print with:    Output.Text = source;
                                     string JSON = source;
-                                    //Output.Text = source; //debug
+                                    debug.Text = source; //debug
                                     //Then to an array
                                     dynamic parsedArray = JsonConvert.DeserializeObject(source);
 
@@ -591,7 +591,7 @@ namespace Lol_Synergy_Analysys
                     synergy = synergy / 4;
 
                     //Limiting to 0.6 prevents false positives
-                    if (synergy > max_synergy && synergy < Convert.ToDecimal(0.60))
+                    if (synergy > max_synergy && synergy < Convert.ToDecimal(0.70))
                     {
                         max_synergy = synergy;
                         //We generated our first team!
@@ -610,11 +610,13 @@ namespace Lol_Synergy_Analysys
 
 
 
+                        /*
                         if (!debug.Text.Contains(Globals.FINAL_OUTPUT_CSV_TITLE))
                         { debug.AppendText(Globals.FINAL_OUTPUT_CSV_TITLE + ";Synergy" + System.Environment.NewLine); }
 
                         debug.AppendText(Globals.FINAL_OUTPUT_CSV + ";" + max_synergy + System.Environment.NewLine);
                         Globals.FINAL_OUTPUT_CSV = "";
+                        */
 
 
                     }
