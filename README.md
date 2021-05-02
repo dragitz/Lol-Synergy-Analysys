@@ -12,9 +12,15 @@ All you have to do is:
 2) Select a champion in the box
 3) Hit calculate
 
+If you want to "brute force" a role and see which champion has the highest synergy score for that role.
+1) Pick any champion for that role 
+2) Click "Find best score"
+
 No riot api key is needed, I'm using public available data.
 
-![](https://i.imgur.com/jbZ5zfH.png)
+Precompiled: https://github.com/dragitz/Lol-Synergy-Analysys/tree/main/Lol%20Synergy%20Analysys/bin/Release/netcoreapp3.1
+
+![](https://i.imgur.com/LrruJeG.png)
 
 Please note that it took me a few hours to code this program, even though I've added lots of comments to guide you through the process, it may contain bugs and unwanted errors.
 
