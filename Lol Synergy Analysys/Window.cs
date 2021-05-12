@@ -143,7 +143,11 @@ namespace Lol_Synergy_Analysys
             //Now we got the dragon version, we need to get the version value for the beta api
 
             string s = Globals.DRAGON_VERSION;
-            string small = new string(s.Take(4).ToArray());
+            string small = new string(s.Take(5).ToArray());
+            if (small.EndsWith("."))
+            {
+                small = new string(s.Take(4).ToArray());
+            }
             Globals.API_VERSION = small;
             api_version.Text = "API Version: " + Globals.API_VERSION;
 
