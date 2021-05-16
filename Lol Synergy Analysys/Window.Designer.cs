@@ -51,6 +51,7 @@ namespace Lol_Synergy_Analysys
             this.synergy_label = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.downgrade_api = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // GetChampions_btn
@@ -253,11 +254,22 @@ namespace Lol_Synergy_Analysys
             this.label1.TabIndex = 30;
             this.label1.Text = "0/0";
             // 
+            // downgrade_api
+            // 
+            this.downgrade_api.Location = new System.Drawing.Point(584, 58);
+            this.downgrade_api.Name = "downgrade_api";
+            this.downgrade_api.Size = new System.Drawing.Size(154, 23);
+            this.downgrade_api.TabIndex = 31;
+            this.downgrade_api.Text = "Downgrade API Version";
+            this.downgrade_api.UseVisualStyleBackColor = true;
+            this.downgrade_api.Click += new System.EventHandler(this.downgrade_api_Click);
+            // 
             // Title
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.downgrade_api);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.synergy_label);
@@ -310,6 +322,7 @@ namespace Lol_Synergy_Analysys
         private System.Windows.Forms.Label synergy_label;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button downgrade_api;
     }
 }
 

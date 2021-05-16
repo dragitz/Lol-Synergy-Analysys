@@ -149,10 +149,8 @@ namespace Lol_Synergy_Analysys
                 small = new string(s.Take(4).ToArray());
             }
             Globals.API_VERSION = small;
+
             api_version.Text = "API Version: " + Globals.API_VERSION;
-
-
-
 
 
 
@@ -701,6 +699,12 @@ namespace Lol_Synergy_Analysys
             Globals.Name = TOP_Box.Text;
         }
 
+        private void downgrade_api_Click(object sender, EventArgs e)
+        {
+            
+            Globals.API_VERSION = Convert.ToString(Convert.ToDouble(Globals.API_VERSION) - 0.01);
+            api_version.Text = "API Version: " + Globals.API_VERSION;
 
+        }
     }
 }
