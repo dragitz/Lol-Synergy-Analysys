@@ -1,5 +1,10 @@
 # Lol-Synergy-Analysys
- 
+
+* Feb. 27 2022
+The project is outdated.
+
+---
+
 Lol Synergy Analysys (yes I know it's spelled wrong) is a tool that allows you to create teams based on statistical analysis.
 
 The team will be created all based on the champion you choose.
